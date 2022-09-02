@@ -22,8 +22,13 @@ const loadMenu = async (id) => {
     // console.log(url);
     const res = await fetch(url);
     const data = await res.json();
-    console.log(data);
+    displayMenu(data.data);
 
+}
+
+const displayMenu = (data) => {
+    document.getElementById('total-item').innerText = data.length;
+    console.log(data);
 }
 
 
