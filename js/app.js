@@ -39,18 +39,23 @@ const displayMenu = (data) => {
         totalItem.innerText = data.length;
     }
 
-
     const cardContainer = document.getElementById('card-container');
     cardContainer.innerHTML = ``;
+    const arrayTotal = [];
+    data.forEach(count => {
+        arrayTotal.push(count.total_view);
+    });
     data.forEach(element => {
+
+        console.log(element);
         const cardDiv = document.createElement('div');
         cardDiv.innerHTML =
             `
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center align-items-center">
                     <div class="card mb-3" style="max-width: 80%;">
                         <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="${element.thumbnail_url}" class="img-fluid  rounded-start" alt="...">
+                            <div class="col-md-4 ">
+                                <img src="${element.thumbnail_url}" class="img-fluid mx-auto d-block rounded-start" alt="...">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
@@ -79,9 +84,11 @@ const displayMenu = (data) => {
                     </div>
                 </div>
         `;
+        // truncate class add, 
         cardContainer.appendChild(cardDiv);
 
     });
+    console.log(arrayTotal.sort(function (a, b) { return b - a }));
     console.log(data);
     toggleSpinner(false);
 }
