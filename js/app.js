@@ -18,6 +18,7 @@ const displayNavMenu = (allData) => {
 }
 
 const loadMenu = async (id) => {
+    toggleSpinner(true);
     url = ` https://openapi.programming-hero.com/api/news/category/${id}`;
     // console.log(url);
     try {
@@ -30,7 +31,15 @@ const loadMenu = async (id) => {
 }
 
 const displayMenu = (data) => {
-    document.getElementById('total-item').innerText = data.length;
+    const totalItem = document.getElementById('total-item');
+    if (data.length <= 0) {
+        totalItem.innerText = 'No'
+    }
+    else {
+        totalItem.innerText = data.length;
+    }
+
+
     const cardContainer = document.getElementById('card-container');
     cardContainer.innerHTML = ``;
     data.forEach(element => {
@@ -74,6 +83,7 @@ const displayMenu = (data) => {
 
     });
     console.log(data);
+    toggleSpinner(false);
 }
 
 const loadNewsDetails = async (newsId) => {
@@ -124,5 +134,15 @@ const displayNewsDetails = (data) => {
 
 }
 
+const toggleSpinner = isLoading => {
+    const loaderSection = document.getElementById('loader');
+    if (isLoading) {
+        loaderSection.classList.remove('d-none');
+    }
+    else {
+        loaderSection.classList.add('d-none');
+
+    }
+}
 
 navMenu();

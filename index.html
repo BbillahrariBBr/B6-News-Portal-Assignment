@@ -50,7 +50,7 @@
 
         <section>
             <div class="justify-content-center h-auto bg-white">
-                <p class="text-center fs-4"><span id="total-item"></span> news found</p>
+                <p class="text-center fs-4"><span id="total-item">No</span> news found</p>
 
             </div>
         </section>
@@ -58,25 +58,18 @@
     </header>
 
     <main>
+        <section id="loader" class="d-none">
+            <div style="height: 400px;" class="d-flex justify-content-center align-items-center">
+                <div class="spinner-border text-success" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </section>
         <!-- card section -->
         <section class="container">
             <div id="card-container">
                 <div class="d-flex justify-content-center">
-                    <div class="card mb-3" style="max-width: 80%;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="${element.thumbnail_url}" class="img-fluid rounded-start" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">${element.title}</h5>
-                                    <p class="card-text">${element.details}</p>
-                                </div>
 
-
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
