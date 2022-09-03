@@ -55,7 +55,7 @@ const displayMenu = (data) => {
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">${element.title}</h5>
-                                    <p class="card-text">${element.details}</p>
+                                    <p class="card-text">${element.details.slice(0, 200)}...</p>
                                 </div>
                                 
                                 <div class="d-flex justify-content-evenly p-1">
