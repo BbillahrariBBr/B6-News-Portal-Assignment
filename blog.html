@@ -42,14 +42,123 @@
 
         <hr>
         <!-- nav tab -->
-        <section>
+        <!-- <section>
             <div id="nav-menu" class="nav nav-tabs justify-content-center">
             </div>
-        </section>
+        </section> -->
 
     </header>
 
     <main>
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Regular vs Arrow Function
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>Function</strong>
+                        declaration and expression as Normal/Regular Function.
+
+                        <strong>Arrow function</strong> is introduced in ES6 and also known as fat arrow function.
+                        <br>
+                        <dl>
+                            <dt><u>Syntax:</u></dt>
+                            <dd>In regular function, Arguments keywords can be used to access the arguments of which
+                                passed to function <br><code>function(x, y) {
+                                return x + y
+                            };
+                            <br>
+                            // ES6
+                            let add = (x, y) =>  x + y</code></dd>
+
+                            <dt><u>new:</u></dt>
+                            <dd>Regular functions are constructible, they can be called using the new keyword.<br>
+                                <code>function add (x, y) <br>
+                                     {
+                                console.log(x + y)}
+                                <br>
+                            let sum = new add(2,3);
+                            // 5
+                            </code>
+                                <br>
+                                arrow functions can never be used as constructor functions. Hence, they can never be
+                                invoked with the new keyword
+                                <code>
+                                    <br>
+                                let add = (x, y) => console.log(x + y);
+                                <br> const sum = new add(2,4); // TypeError: add is not a constructor
+                            </code>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Why used Template strings?
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>Template literals are enclosed by backtick (`) characters instead of double or single
+                            quotes.
+                        </strong>
+                        String interpolation makes things so much simpler.
+                        <ul>
+                            <li>only one pair of quotes (back-ticks)</li>
+                            <li>embedded (interpolated) variables and expressions</li>
+                            <li>multiple lines within the quotes (pre-formatted text)</li>
+                            <li>treated like strings so can be assigned or be a return value</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        forEach vs map vs filter vs find
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <dl>
+                            <dt>When to use forEach?</dt>
+                            <dd><code>.forEach()</code> is great you need to execute a function for each individual
+                                element in an
+                                array.
+                                Good practice is that you should use <code>.forEach()</code> when you can’t use other
+                                array methods
+                                to
+                                accomplish your goal. I know this may sound vague, but <code>.forEach()</code> is a
+                                generic tool…
+                                only
+                                use it when you can’t use a more specialized tool.</dd>
+
+                            <dt>When to use map?</dt>
+                            <dd><code>.map()</code> when you want to transform elements in an array.</dd>
+
+                            <dt>When to use filter?</dt>
+                            <dd><code>.filter()</code> when you want to select a subset of multiple elements from an
+                                array.</dd>
+
+                            <dt>When to use find?</dt>
+                            <dd><code>.reduce()</code> when you want derive a single value from multiple elements in an
+                                array.</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </main>
 
