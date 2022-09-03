@@ -38,15 +38,29 @@ const displayMenu = (data) => {
                     <div class="card mb-3" style="max-width: 80%;">
                         <div class="row g-0">
                             <div class="col-md-4">
-                                <img src="${element.thumbnail_url}" class="img-fluid rounded-start" alt="...">
+                                <img src="${element.thumbnail_url}" class="img-fluid  rounded-start" alt="...">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">${element.title}</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to
-                                        additional content. This content is a little bit longer.</p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                    <p class="card-text">${element.details}</p>
+                                </div>
+                                
+                                <div class="d-flex justify-content-evenly p-1">
+
+                                    <div class="d-flex align-items-center   justify-content-center">
+                                    
+                                    <img class="roundImage img-fluid rounded-circle mx-1" src="${element.author.img}" alt="">
+                                    <p>${element.author.name ? element.author.name : 'No author found'}</p>
+                                    </div>
+                                    
+                                    <div class="d-flex align-items-center justify-content-center">
+                                    <p class="mx-1"><i class="fa-regular fa-eye"></i></p>
+                                    <p>${element.total_view ? element.total_view : 0}</p>
+                                    </div>
+                                    <button class="btn btn-primary"><i class="fa-solid fa-arrow-right"></i></button>
+
+                                   
                                 </div>
                             </div>
                         </div>
