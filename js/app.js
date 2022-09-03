@@ -20,10 +20,13 @@ const displayNavMenu = (allData) => {
 const loadMenu = async (id) => {
     url = ` https://openapi.programming-hero.com/api/news/category/${id}`;
     // console.log(url);
-    const res = await fetch(url);
-    const data = await res.json();
-    displayMenu(data.data);
-
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        displayMenu(data.data);
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 const displayMenu = (data) => {
@@ -58,7 +61,7 @@ const displayMenu = (data) => {
                                     <p class="mx-1"><i class="fa-regular fa-eye"></i></p>
                                     <p>${element.total_view ? element.total_view : 0}</p>
                                     </div>
-                                    <button class="btn btn-primary"><i class="fa-solid fa-arrow-right"></i></button>
+                                    <button class="btn btn-primary" onclick="loadNewsDetails('${element._id}')" data-bs-toggle="modal" data-bs-target="#newsDetailModal"><i class="fa-solid fa-arrow-right"></i></button>
 
                                    
                                 </div>
@@ -71,6 +74,54 @@ const displayMenu = (data) => {
 
     });
     console.log(data);
+}
+
+const loadNewsDetails = async (newsId) => {
+    url = `https://openapi.programming-hero.com/api/news/${newsId}`;
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        displayNewsDetails(data.data[0]);
+    } catch (error) {
+        console.log(error);
+    }
+
+    // console.log(url);
+
+}
+
+const displayNewsDetails = (data) => {
+    console.log(data);
+    const modalTitle = document.getElementById('newsDetailModalLabel');
+    modalTitle.innerText = data.title;
+
+    const newsDetails = document.getElementById('news-details');
+    newsDetails.innerHTML = `
+    <img src="${data.image_url}" class="img-fluid  rounded-start" alt="...">
+    <p class="mt-1 text-wrap">${data.details}</p>
+                                
+    <div class="d-flex justify-content-evenly p-1">
+
+        <div class="d-flex align-items-center   justify-content-center">
+        
+        <img class="roundImage img-fluid rounded-circle mx-1" src="${data.author.img}" alt="">
+        <p>${data.author.name ? data.author.name : 'No author found'}</p>
+        </div>
+        
+        <div class="d-flex align-items-center justify-content-center">
+        <p class="mx-1"><i class="fa-regular fa-eye"></i></p>
+        <p>${data.total_view ? data.total_view : 0}</p>
+        </div>
+
+       
+    </div>
+    `;
+    // const phoneDetails = document.getElementById('phone-details');
+    // phoneDetails.innerHTML = `
+    // <p>Released Date: ${phnDetails.releaseDate}</p>
+    // `;
+    // console.log(phnDetails);
+
 }
 
 
